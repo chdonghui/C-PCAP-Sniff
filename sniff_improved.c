@@ -100,8 +100,6 @@ void got_packet(u_char *args, const struct pcap_pkthdr *header,
 	/* ---- Print HTTP Message ---- */
 	int eth_header_len = sizeof(struct ethheader);
 	int total_headers_len = eth_header_len + ip_header_len + tcp_header_len;
-
-	const u_char *payload = packet + total_headers_len;
 	
 	int ip_total_len = ntohs(ip->iph_len);      // total IP packet length (header+data)
 	int payload_len  = ip_total_len - ip_header_len - tcp_header_len;
